@@ -34,4 +34,11 @@ class EventTest < ActiveSupport::TestCase
     refute @event.valid?
   end
 
+  test 'serializers json' do
+     serializer = ::EventSerializer.new(@event)
+     serialization = ActiveModelSerializers::Adapter.create(serializer)
+     event = JSON.parse(serialization.to_json)
+     assert_equal event[:description],  'event-1'
+  end
+
 end
