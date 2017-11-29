@@ -6,6 +6,7 @@ module.exports = function(environment) {
     modulePrefix: 'frontend',
     environment,
     rootURL: '/',
+    api_host: 'http://localhost:3000',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -30,6 +31,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.api_host
   }
 
   if (environment === 'test') {
@@ -41,6 +44,8 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV.api_host
   }
 
   if (environment === 'production') {
