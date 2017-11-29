@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: event-1
+  start: 2017-11-29 20:49:01
+  finish: 2017-11-29 20:49:01
+
+two:
+  description: event-2
+  start: 2017-11-29 20:49:01
+  finish: 2017-11-29 20:49:01
