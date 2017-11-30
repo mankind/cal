@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Event.delete_all
+Event.create!(description: 'Event 1', start: '2017-11-31T07:08:08',
+         finish: '2017-12-01T09:08:08')
+Event.create!(description: 'Event 2', start: '2017-12-01T07:08:08',
+         finish: '2017-12-02T09:08:08')
+
+
+
