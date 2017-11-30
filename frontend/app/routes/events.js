@@ -4,5 +4,12 @@ export default Route.extend({
   model(){
     let model = this.get('store').findAll('event');
     return model
+  },
+
+  actions: {
+    refreshModel() {
+      this.refresh();
+    }
   }
+
 });

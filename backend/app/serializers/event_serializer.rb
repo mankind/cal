@@ -1,8 +1,4 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :id, :description, :start, :finish, :title
-
-  def title
-    object.description
-  end
+  attributes :id, :description, :start, :finish 
 
 end

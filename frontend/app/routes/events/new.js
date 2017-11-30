@@ -15,10 +15,11 @@ export default Route.extend({
     addEvent(record){
       self = this;
       record.save().then(function(error) {
-        self.transitionTo("index")
+        self.send('refreshModel');
+        self.transitionTo("index");
       }, function(error) {
         console.log("event error", error)
-        self.transitionTo("index")
+        self.transitionTo("index");
       })
     }
   }

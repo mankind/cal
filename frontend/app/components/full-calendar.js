@@ -16,22 +16,18 @@ export default Component.extend({
         let today = moment().format('YYYY-MM-DD');
         let fullcalendarTodayDate = $('#calendar').fullCalendar('getDate').format('YYYY-MM-DD')
         if(today == fullcalendarTodayDate ) {
-          $("th.fc-day-header.fc-today").addClass('current-day');
-           $('.fc-content').css({color: 'yellow'});
+          $(".fc-today").addClass('current-day');
          }
       }
 
     });
 
-
   },
 
- 
-
   convertModelToJson() {
-    return this.model.map(function(event) { 
-      let eventJson = event.toJSON();
-      return eventJson
+    return this.model.map(function(event) {
+        let eventJson = event.get('asJSON');
+        return eventJson;
     });
   }
 
