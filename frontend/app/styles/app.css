@@ -1,5 +1,3 @@
-.current-day {
-    background: red;
-    color: blue;
+#calendar .fc-agendaWeek-view .fc-today,  #calendar .fc-agendaDay-view .fc-today {
+  background: red !important;
 }
-

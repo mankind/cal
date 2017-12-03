@@ -1,9 +1,7 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  newEvent: '',
-  eventDescription: '',
-
+  
   didInsertElement() {
     this._super(...arguments);
     this.$().attr('contenteditable', true);
@@ -11,15 +9,7 @@ export default Component.extend({
     return this.$("#calendar").fullCalendar({
 
       events: this.convertModelToJson(),
-      defaultView: 'agendaWeek',
-      eventAfterRender: function (event, element, view) { 
-        let today = moment().format('YYYY-MM-DD');
-        let fullcalendarTodayDate = $('#calendar').fullCalendar('getDate').format('YYYY-MM-DD')
-        if(today == fullcalendarTodayDate ) {
-          $(".fc-today").addClass('current-day');
-         }
-      }
-
+      defaultView: 'agendaWeek'
     });
 
   },
@@ -29,6 +19,12 @@ export default Component.extend({
         let eventJson = event.get('asJSON');
         return eventJson;
     });
+  },
+
+  actions: {
+    addEvent: function(param) {
+      this.sendAction('refreshModel', param);
+    }
   }
 
 

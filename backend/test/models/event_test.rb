@@ -31,14 +31,7 @@ class EventTest < ActiveSupport::TestCase
   test 'finish date must be after start date' do
     @event.start = Date.parse('2017-12-29 18:29:08')
     @event.finish = Date.parse('2017-11-29 18:29:08')
-    refute @event.valid?
-  end
-
-  test 'serializers json' do
-     serializer = ::EventSerializer.new(@event)
-     serialization = ActiveModelSerializers::Adapter.create(serializer)
-     event = JSON.parse(serialization.to_json)
-     assert_equal event[:description],  'event-1'
+    refute @event.valid?, 'event is invalid when finish date comes before start date'
   end
 
 end

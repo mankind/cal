@@ -10,7 +10,20 @@ export default DS.Model.extend({
     return {
       title: this.get('description'),
       start: this.get('start'),
-      finish: this.get('finish')
+      finish: this.get('finish'),
+      color: this.get('color')
     };
+  }),
+
+  color:  computed('start', function(){
+    let startDay = this.get('start').format('YYYY-MM-DD');
+    let today = moment(new Date()).format('YYYY-MM-DD');
+    if (startDay === today) {
+      return 'red';
+    }
   })
+
+
+
+
 });

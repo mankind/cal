@@ -12,14 +12,17 @@ export default Route.extend({
       this.transitionTo('events');
     },
 
-    addEvent(record){
-      self = this;
-      record.save().then(function(error) {
-        self.send('refreshModel');
-        self.transitionTo("index");
+    addEvent(record){  
+      record.save().then((error) => {
+        this.send('refreshModel');
+        this.transitionTo("events")
       }, function(error) {
-        console.log("event error", error)
-        self.transitionTo("index");
+        if (error.status === 422) {
+          alert('if there are no empty fields, ensure your finish date is after start date');
+        } else {
+          alert('if there are no empty fields, ensure your finish date is after start date');   
+        }
+
       })
     }
   }
